@@ -1,0 +1,17 @@
+{
+  "name": "de",
+  "version": "1.0.0",
+  "description": "online blood bank",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js -e pug,js,css"
+  },
+  "author": "ramc",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "pug": "^3.0.2"
+  }
+}

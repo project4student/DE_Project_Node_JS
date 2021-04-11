@@ -1,0 +1,117 @@
+@font-face {
+	src: url("../Poppins/Poppins-Regular.ttf");
+	font-family: "Poppins";
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins",sans-serif;
+}
+
+.container {
+	padding: 10px;
+}
+
+.logo {
+	font-size: 35px;
+	text-align: center;
+	pointer-events: none;
+}
+
+.switch a {
+	display: inline-block;
+	text-decoration: none;
+	padding: 5px 15px;
+	font-size: 20px;
+	color: #fff;
+	background: #dc1907;
+	margin: 10px 5px;
+	border-radius: 7px;
+	transition: all 0.2s;
+}
+
+.switch a:hover {
+	transform: translateX(1px) translateY(1px);
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+	transition: all 0.3s;
+}
+
+.container form {
+	margin: 20px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.form-control {
+	display: flex;
+	flex-direction: column;
+	margin: 8px 10px;
+}
+
+.form-control label {
+	font-size: 20px;
+	margin-bottom: 4px;
+}
+
+.form-control input , .form-control select , .form-control textarea {
+	outline: none;
+	border-radius: 7px;
+	border: 1px solid black;
+	padding: 5px 10px;
+	font-size: 17px;
+	transition: all 0.3s;
+}
+
+.form-control input:focus , .form-control select:focus , .form-control textarea:focus {
+	border: 0.1px solid #2196f3;
+	box-shadow: 0 0 1px #2196f3,
+	0 0 3px #2196f3,
+	0 0 5px #2196f3,
+	0 0 7px #2196f3,
+	0 0 8px #2196f3;
+	transition: all 0.3s;
+}
+
+.form-control textarea {
+	max-width: 100%;
+	max-height: 200px;
+}
+
+.radio {
+	flex-direction: row;
+	margin: 0 10px;
+}
+
+.radio input {
+	margin: 7px 7px 7px 35px;
+	height: 15px;
+	width: 15px;
+}
+
+.radio input:focus {
+	box-shadow: none;
+}
+
+input[type="submit"] {
+	font-size: 20px;
+	height: 40px;
+	width: 130px;
+	margin: 5px 10px;
+	border-radius: 7px;
+	border: none;
+	background: #dc1907;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 2px;
+	cursor: pointer;
+	transition: all 0.35s;
+}
+
+input[type="submit"]:hover {
+	transform: translateX(1px) translateY(1px);
+	box-shadow: 2.5px 2.5px 10px rgba(0, 0, 0, 0.6);
+	transition: all 0.35s;
+}

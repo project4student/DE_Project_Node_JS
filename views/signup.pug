@@ -1,0 +1,131 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Signup
+		link(rel="stylesheet", href="/style/signup.css")
+		link(rel="stylesheet", href="/style/navbar.css")
+		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
+
+	body
+		include ../partials/navbar.pug
+		- var query = option
+		.container
+			h2.logo Signup For #{query}
+			.switch
+				a(href="/signup?signup=Public") Public
+				a(href="/signup?signup=Hospital / Bloodbank") Hospital / Bloodbank
+			if query == "Public"
+				.form-public#pub
+					form(action="/signup", method="post", autocomplete="off")
+						.form-control
+							label(for="fname") Full Name :
+							input(type="text" name="fname" id="fname" required autofocus)
+						.form-control
+							label(for="email") Email :
+							input(type="email" name="email" id="email" required)
+						.form-control
+							label(for="mobile") Mobile Number :
+							input(type="number" name="mobile" id="mobile" maxlength="10" minlength="10" required)
+						.form-control
+							label(for="dob") Birth Date :
+							input(type="date" name="dob" id="dob" required)
+						.form-control
+							label(for="gender") Gender :
+						.form-control.radio
+							input(type="radio" name="gender" id="male")
+							label(for="male") Male
+						.form-control.radio
+							input(type="radio" name="gender" id="female")
+							label(for="female") Female
+						.form-control
+							label(for="bloodGrp") Select Your Blood Group :
+							select.blgrp(name="bloodGrp" id="bloodGrp")
+								option(value="select" selected) Select Blood Group
+								option(value="A+") A+
+								option(value="A-") A-
+								option(value="B+") B+
+								option(value="B-") B-
+								option(value="AB+") AB+
+								option(value="AB-") AB-
+								option(value="O+") O+
+								option(value="O-") O-
+						.form-control
+							label(for="password") Password :
+							input(type="password" name="password" id="password" required)
+						.form-control
+							label(for="cpassword") Confirm Password :
+							input(type="password" name="cpassword" id="cpassword" required)
+						input(type="submit", value="Signup")
+			else if query == 'Hospital / Bloodbank'
+				.form-hospital-bloodbank#hosbld
+					form(action="/signup", method="post")
+						.form-control
+							label(for="fname") Hospital / Blood Bank Name :
+							input(type="text" name="fname" id="fname" required autofocus)
+						.form-control
+							label(for="email") Email :
+							input(type="email" name="email" id="email" required)
+						.form-control
+							label(for="tel") Telephone Number :
+							input(type="number" name="tel" id="tel" required)
+						.form-control
+							label(for="address") Address :
+							textarea(name="address" id="address" required)
+						.form-control
+							label Category :
+						.form-control.radio
+							input(type="radio" name="category" id="gov")
+							label(for="gov") Government
+						.form-control.radio
+							input(type="radio" name="category" id="pvt")
+							label(for="pvt") Private
+						.form-control
+							label(for="city") Select City :
+							select.blgrp(name="city" id="city")
+								option(value="select" selected) Select City
+								option(value="Ahmedabad") Ahmedabad
+								option(value="Amrelli") Amreli
+								option(value="Anand") Anand
+								option(value="Arvalli") Arvalli
+								option(value="Banaskantha") Banaskantha
+								option(value="Bharuch") Bharuch
+								option(value="Bhavnagar") Bhavnagar
+								option(value="Botad") Botad
+								option(value="Chhota Udaipur") Chhota Udaipur
+								option(value="Dahod") Dahod
+								option(value="Dang") Dang
+								option(value="Devbhoomi Dwarka") Devbhoomi Dwarka
+								option(value="Gandhinagar") Gandhinagar
+								option(value="Gir Somnath") Gir Somnath
+								option(value="Jamnagar") Jamnagar
+								option(value="Jungadh") Junagadh
+								option(value="Kutch") Kutch
+								option(value="Kheda") Kheda
+								option(value="Mahisagar") Mahisagar
+								option(value="Mehsana") Mehsana
+								option(value="Morbi") Morbi
+								option(value="Narmada") Narmada
+								option(value="Navsari") Navsari
+								option(value="Panchmahal") Panchmahal
+								option(value="Patan") Patan
+								option(value="Porbandar") Porbandar
+								option(value="Rajkot") Rajkot
+								option(value="Sabarkantha") Sabarkantha
+								option(value="Surat") Surat
+								option(value="Surendranagar") Surendranagar
+								option(value="Tapi") Tapi
+								option(value="Vadodara") Vadodara
+								option(value="Valsad") Valsad
+						.form-control
+							label(for="password") Password :
+							input(type="password" name="password" id="password" required)
+						.form-control
+							label(for="cpassword") Confirm Password :
+							input(type="password" name="cpassword" id="cpassword" required)
+						input(type="submit", value="Signup")
+			else 
+				h2 Not Valid
+	script(src="js/hamburger.js") 

@@ -22,6 +22,11 @@ app.get('/signup', (req, res) => {
 	res.render('signup', { option: queryParams["signup"] });
 });
 
+app.get('/login', (req, res) => {
+	let queryParams = req.query;
+	res.render('login');
+});
+
 
 
 

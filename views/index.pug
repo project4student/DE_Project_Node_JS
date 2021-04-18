@@ -1,0 +1,125 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="style/navbar.css")
+		link(rel="stylesheet", href="style/index.css")
+		link(rel="stylesheet", href="style/footer.css")
+		title Online Blood Bank System
+	body
+		include ../partials/navbar.pug
+		.slider
+			input.checkbox(type="radio", name="slider" checked)
+			.imgbox
+				img(src="images/sl1.jpg", alt="img1")
+			input.checkbox(type="radio", name="slider")
+			.imgbox
+				img(src="images/sl2.jpg", alt="img1")
+			input.checkbox(type="radio", name="slider")
+			.imgbox
+				img(src="images/sl3.jpg", alt="img1")
+		.container
+			.first
+				.subheading RAMC Services
+				.cardContainer
+					.card
+						img(src="images/r4.jpg", alt="shedule")
+						.cardHeading Blood Donation Camp Shedule
+						.cardInfo Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate illo quisquam laboriosam explicabo cumque perferendis quos eius. Soluta consectetur dolore quasi sapiente voluptates.
+						a(href="campShedule") Check Shedule
+					.card
+						img(src="images/r5.jpg", alt="blood banks")
+						.cardHeading Blood Banks
+						.cardInfo Lorem ipsum dolor sit, amet consectetur adipi
+						a(href="/bloodbanks") Donate Now
+					.card
+						img(src="images/r6.jpg", alt="Availability")
+						.cardHeading Blood Availability
+						.cardInfo Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate illo quisquam laboriosam explicabo cumque perferendis quos eius. Soluta consectetur dolore quasi sapiente voluptates.
+						a(href="/bloodAvailability") Check Availability
+		hr.hr
+		.container
+			.first
+				.subheading About Donation
+				.bloodDonation
+					img(src="images/r8.jpg", alt="r8")
+					.table
+						.tableCaption
+						table.bloodDonationTable
+							tr.bloodDonationTableTr
+								th.bloodDonationTableTd Blood Type
+								th.bloodDonationTableTd Donate Blood To
+								th.bloodDonationTableTd Receive Blood From
+							tr.bloodDonationTableTr
+								td.bloodDonationTableTd A+
+								td.bloodDonationTableTd A+ AB+
+								td.bloodDonationTableTd A+ A- O+ O-
+							tr.bloodDonationTableTr
+								td.bloodDonationTableTd O+
+								td.bloodDonationTableTd O+ A+ B+ AB+
+								td.bloodDonationTableTd O+ O-
+							tr.bloodDonationTableTr
+								td.bloodDonationTableTd B+
+								td.bloodDonationTableTd B+ AB+
+								td.bloodDonationTableTd B+ B- O+ O-
+							tr.bloodDonationTableTr
+								td.bloodDonationTableTd AB+
+								td.bloodDonationTableTd AB+
+								td.bloodDonationTableTd Everyone
+							tr.bloodDonationTableTr
+								td.bloodDonationTableTd A-
+								td.bloodDonationTableTd A+ A- AB+ AB-
+								td.bloodDonationTableTd A- O-
+							tr.bloodDonationTableTr
+								td.bloodDonationTableTd O-
+								td.bloodDonationTableTd Everyone
+								td.bloodDonationTableTd O-
+							tr.bloodDonationTableTr
+								td.bloodDonationTableTd B-
+								td.bloodDonationTableTd B+ B- AB+ AB-
+								td.bloodDonationTableTd A- O-
+							tr.bloodDonationTableTr
+								td.bloodDonationTableTd AB-
+								td.bloodDonationTableTd AB+ AB-
+								td.bloodDonationTableTd AB- A- B- O-
+		.container.last
+			.first
+				.subheading Criteria to Donate Blood
+				ol.ol
+					li.li
+						.liHeading Overall health-
+						| The donor must be fit and healthy, and should not be suffering from transmittable diseases.
+					li.li
+						.liHeading Age and weight-
+						| The donor must be 18–65 years old and should weigh a minimum of 50 kg.
+					li.li
+						.liHeading Pulse rate-
+						| Between 50 and 100 without irregularities.
+					li.li
+						.liHeading Hemoglobin level-
+						| A minimum of 12.5 g/dL.
+					li.li
+						.liHeading Blood pressure-
+						| Diastolic: 50–100 mm Hg, Systolic: 100–180 mm Hg.
+					li.li
+						.liHeading Body temperature-
+						| Should be normal, with an oral temperature not exceeding 37.5 °C.
+					li.li
+						.liHeading The time period between successive blood donations should be more than 3 months.
+
+		include ../partials/footer.pug
+	script.
+		const sliderCheckBoxes = document.querySelectorAll('input[name="slider"]');
+		setInterval(() => {
+			if(sliderCheckBoxes[0].checked){
+				sliderCheckBoxes[1].checked = true;
+			}
+			else if(sliderCheckBoxes[1].checked) {
+				sliderCheckBoxes[2].checked = true;
+			}
+			else {
+				sliderCheckBoxes[0].checked = true;
+			}
+		}, 4000);

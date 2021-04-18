@@ -47,8 +47,6 @@
 		color: #fff;
 		font-size: 23.5px;
 		overflow: hidden;
-		transition: all 0.5s;
-
 	}
 
 	.navli a::before {
@@ -60,6 +58,7 @@
 		height: 3px;
 		background-color: #dc1907;
 	}
+
 	.navli a::after {
 		content: '';
 		position: absolute;
@@ -74,10 +73,11 @@
 		transition: transform 0.8s;
 		transform: translateX(200px);
 	}
+
 	.navli:hover a::after{
 		transition: transform 0.8s;
 		transform: translateX(0);
-		transition-delay: 0.8s;
+		transition-delay: 0.6s;
 	}
 }
 

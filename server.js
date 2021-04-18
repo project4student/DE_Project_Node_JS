@@ -13,7 +13,7 @@ app.set('view engine', 'pug');
 app.set('views', viewsPath);
 
 app.get('/', (req, res) => {
-	res.status(200).send("Home Page");
+	res.render("index");
 });
 
 
@@ -28,6 +28,9 @@ app.get('/login', (req, res) => {
 });
 
 
+app.get("*", (req, res) => {
+	res.status(404).send("This page Couldn't be found");
+});
 
 
 app.listen(port);

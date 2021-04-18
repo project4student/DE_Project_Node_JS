@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+@media (min-width:1099px) {
+
+	.container {
+		padding: 10px 100px;
+	}
+
+	.bloodDonation img {
+		width: 450px;
+	}
+}
+
+@media (min-width:0) and (max-width:1099px) {
+	.container {
+		padding: 10px;
+	}
+
+	.bloodDonation img {
+		width: 300px;
+	}
+
+	.tableCaption::before {
+		content: 'Compatible Blood Type Donors';
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.first {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.subheading {
+	position: relative;
+	margin: 10px auto;
+	font-size: 30px;
+	pointer-events: none;
+	color: #dc1907;
+	font-weight: 600;
+	text-shadow: 0px 3px 5px #dc19079c;
+}
+
+.subheading::before {
+	content: '';
+	position: absolute;
+	bottom: -3px;
+	width: 80%;
+	height: 4px;
+	border-radius: 10px;
+	background-color: #dc1907;
+}
+
+.cardContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.card {
+	width: 300px;
+	min-height: 500px;
+	border: 2px solid rgb(0, 0, 0, 0.13);
+	margin: 10px 15px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	align-items: center;
+	border-radius: 15px;
+	transition: box-shadow 0.5s;
+}
+
+.card:hover {
+	box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.6);
+	transition: all 0.5s;
+}
+
+.card img {
+	width: 200px;
+	max-width: 200px;
+	height: 200px;
+	max-height: 200px;
+}
+
+.cardHeading {
+	font-weight: 550;
+	font-size: 20px;
+	text-align: center;
+	margin: 5px 0;
+}
+
+.card a {
+	display: inline-block;
+	text-decoration: none;
+	padding: 5px 15px;
+	font-size: 20px;
+	color: #fff;
+	background: #dc1907;
+	margin: 10px 5px;
+	margin-top: auto;
+	border-radius: 7px;
+	transition: all 0.2s;
+}
+
+.card a:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+	transition: all 0.3s;
+}
+
+.cardInfo {
+	font-size: 15px;
+	margin: 7px 5px;
+	text-align: center;
+}
+
+.bloodDonation {
+	display: flex;
+	width: 100%;
+	margin: 10px 0;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.bloodDonation img {
+	margin: 0 10px;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.table {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 25px;
+}
+
+.tableCaption {
+	font-size: 17px;
+	margin: 15px 0 -20px 0;
+}
+
+.bloodDonationTable {
+	margin: 30px 0;
+	position: relative;
+	border-collapse: collapse;
+	box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+	border-radius: 10px;
+}
+
+.bloodDonationTableTr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+.bloodDonationTableTd {
+	padding: 5px 10px;
+	text-align: left;
+	border: 1px solid #dddddd;
+	font-size: 18px;
+}
+
+.bloodDonationTable::before {
+	content: '';
+	position: absolute;
+	height: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	top: -40px;
+	left: 30%;
+	color: #fff;
+	padding: 0 9px;
+	border-radius: 50px;
+}
+
+.bloodDonationTable::after {
+	content: '';
+	position: absolute;
+	height: 0;
+	width: 0;
+	top: -10px;
+	left: 45%;
+	border-top: 10px solid transparent;
+	border-left: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right:10px solid transparent;
+}
+
+.bloodDonationTable:hover::before {
+	content: 'Compatible Blood Donors';
+	height: 30px;
+	transition: all 0.5s;
+}
+
+.bloodDonationTable:hover::after {
+	border-top: 10px solid black;
+}
+
+.ol {
+	padding-left: 30px;
+}
+
+.li {
+	margin: 7px 0;
+	margin-right: 0;
+	font-size: 20px;
+	white-space: pre-wrap;
+}
+
+.liHeading {
+	display: inline-block;
+	font-weight: 500;
+}
+
+.li::marker {
+	font-weight: 500;
+}
+
+.last {
+	background-color: #e9ecef;
+}
+
+.slider {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	width: 100%;
+	height: 500px;
+}
+
+.imgbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.5s;
+}
+
+.imgbox img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.slider input[type="radio"]:checked + .imgbox {
+	height: 500px;
+}
+
+.slider input[type="radio"] {
+	position: relative;
+	height: 17px;
+	width: 17px;
+	z-index: 10;
+	margin: 0 5px;
+	margin-bottom: 20px;
+	cursor: pointer;
+	outline: none;
+}

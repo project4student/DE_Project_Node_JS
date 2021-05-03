@@ -8,6 +8,7 @@ html(lang="en")
 		link(rel="stylesheet", href="/style/signup.css")
 		link(rel="stylesheet", href="/style/navbar.css")
 		link(rel="stylesheet", href="/style/footer.css")
+		script(src="js/validator.js") 
 	body
 		include ../partials/navbar.pug
 		.container
@@ -18,5 +19,22 @@ html(lang="en")
 				.form-control
 					label(for="password") Password :
 					input(type="password", name="password" id="password" required)
-				input(type="submit", value="Submit" class="btn")
+				.err #{err}
+				input.submit(type="submit", value="Submit" class="btn")
 		include ../partials/footer.pug
+	script.
+		const submit = document.querySelector("input[type='submit']");
+		const email = document.querySelector("input[name='email']");
+		email.addEventListener("focusout", () => {
+			isValid = validator.isEmail(email.value.trim());
+			if (isValid) {
+				email.classList.remove("error");
+				submit.classList.remove("disabled");
+				submit.removeAttribute("disabled");
+			}
+			else {
+				email.classList.add("error");
+				submit.classList.add("disabled");
+				submit.setAttribute("disabled", "disabled");
+			}
+		});

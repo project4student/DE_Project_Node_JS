@@ -1,6 +1,6 @@
-.navbar 
+.navbar
 	input#showLinks(type="checkbox", name="showLinks")
-	.logodiv 
+	.logodiv
 		a.logo(href="/") RAMC BloodBank
 		label.hamburger(for="showLinks")
 	.links
@@ -12,15 +12,15 @@
 				.dropdown
 					a(href="/campShedule") Camp Shedule
 					a(href="/bloodbanks") Blood Banks
+					a(href="/myDonations") My Donations
 			.dropdownToggleMobile
 				input#hideShow(type="checkbox", name="hideShow")
 				label.toggleMobile(for="hideShow") Services
 				.dropdownMobile
 					a(href="/campShedule") Camp Shedule
 					a(href="/bloodbanks") Blood Banks
+					a(href="/myDonations") My Donations
 			.link
 				a(href="/about") About US
 			.link
-				a(href="/signup?signup=Public") Sign UP
-			.link
-				a(href="/login") Login
+				a(href="/logout") Logout

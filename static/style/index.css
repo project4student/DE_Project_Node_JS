@@ -7,7 +7,7 @@
 	font-family: "Poppins", sans-serif;
 }
 
-@media (min-width:1099px) {
+@media (min-width:1000px) {
 
 	.container {
 		padding: 10px 100px;
@@ -18,7 +18,7 @@
 	}
 }
 
-@media (min-width:0) and (max-width:1099px) {
+@media (min-width:0) and (max-width:1000px) {
 	.container {
 		padding: 10px;
 	}

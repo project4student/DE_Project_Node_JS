@@ -1,0 +1,79 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Organize Camp
+		link(rel="stylesheet", href="style/navbar.css")
+		link(rel="stylesheet", href="style/footer.css")
+		link(rel="stylesheet", href="style/organizeCamp.css")
+		script(src="js/validator.js")
+	body
+		include ../partials/loggedInNavbarHB.pug
+		.container
+			h2.subheading Organize Blood Camp
+			form(action="/organize", method="post", autocomplete="off")
+				.err #{err}
+				.suc #{suc}
+				.form-control
+					label(for="email") Email :
+					input(type="email" name="email" id="email" required autofocus)
+				.form-control
+					label(for="primaryPhone") Primary Phone :
+					input(type="number" name="primaryPhone" id="primaryPhone" required)
+				.form-control
+					label(for="secondaryPhone") Secondary Phone :
+					input(type="number" name="secondaryPhone" id="secondaryPhone" required)
+				.form-control
+					label(for="date") Date :
+					input(type="date" name="date" id="date" required)
+				.form-control
+					label(for="address") Address :
+					textarea(name="address" id="address" required)
+				.form-control
+					label(for="city") Select City :
+					select.city(name="city" id="city")
+						option(value="select" selected) Select City
+						option(value="Ahmedabad") Ahmedabad
+						option(value="Amrelli") Amreli
+						option(value="Anand") Anand
+						option(value="Arvalli") Arvalli
+						option(value="Banaskantha") Banaskantha
+						option(value="Bharuch") Bharuch
+						option(value="Bhavnagar") Bhavnagar
+						option(value="Botad") Botad
+						option(value="Chhota Udaipur") Chhota Udaipur
+						option(value="Dahod") Dahod
+						option(value="Dang") Dang
+						option(value="Devbhoomi Dwarka") Devbhoomi Dwarka
+						option(value="Gandhinagar") Gandhinagar
+						option(value="Gir Somnath") Gir Somnath
+						option(value="Jamnagar") Jamnagar
+						option(value="Jungadh") Junagadh
+						option(value="Kutch") Kutch
+						option(value="Kheda") Kheda
+						option(value="Mahisagar") Mahisagar
+						option(value="Mehsana") Mehsana
+						option(value="Morbi") Morbi
+						option(value="Narmada") Narmada
+						option(value="Navsari") Navsari
+						option(value="Panchmahal") Panchmahal
+						option(value="Patan") Patan
+						option(value="Porbandar") Porbandar
+						option(value="Rajkot") Rajkot
+						option(value="Sabarkantha") Sabarkantha
+						option(value="Surat") Surat
+						option(value="Surendranagar") Surendranagar
+						option(value="Tapi") Tapi
+						option(value="Vadodara") Vadodara
+						option(value="Valsad") Valsad
+				.form-control
+					label Time :
+					.fromTo
+						input(type="time" name="from" id="from" class="time" required)
+						.time TO
+						input(type="time" name="to" id="to" class="time" required)
+				input.submit(type="submit", value="Organize")
+		include ../partials/footer.pug
+	script(src="js/organizeCamp.js")

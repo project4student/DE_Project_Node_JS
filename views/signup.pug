@@ -9,7 +9,7 @@ html(lang="en")
 		link(rel="stylesheet", href="/style/navbar.css")
 		link(rel="stylesheet", href="/style/footer.css")
 		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
-
+	script(src="js/validator.js")
 	body
 		include ../partials/navbar.pug
 		- var query = option
@@ -18,9 +18,11 @@ html(lang="en")
 			.switch
 				a(href="/signup?signup=Public") Public
 				a(href="/signup?signup=Hospital / Bloodbank") Hospital / Bloodbank
+			.err #{err}
+			.suc #{suc}
 			if query == "Public"
 				.form-public#pub
-					form(action="/signup", method="post", autocomplete="off")
+					form(action="/signup?type=public", method="post", autocomplete="off")
 						.form-control
 							label(for="fname") Full Name :
 							input(type="text" name="fname" id="fname" required autofocus)
@@ -29,17 +31,17 @@ html(lang="en")
 							input(type="email" name="email" id="email" required)
 						.form-control
 							label(for="mobile") Mobile Number :
-							input(type="number" name="mobile" id="mobile" maxlength="10" minlength="10" required)
+							input(type="number" name="mobile" id="mobile" max="9999999999" min ="1000000000" required)
 						.form-control
 							label(for="dob") Birth Date :
 							input(type="date" name="dob" id="dob" required)
 						.form-control
 							label(for="gender") Gender :
 						.form-control.radio
-							input(type="radio" name="gender" id="male")
+							input(type="radio" name="gender" id="male" value="male")
 							label(for="male") Male
 						.form-control.radio
-							input(type="radio" name="gender" id="female")
+							input(type="radio" name="gender" id="female" value="female")
 							label(for="female") Female
 						.form-control
 							label(for="bloodGrp") Select Your Blood Group :
@@ -59,10 +61,11 @@ html(lang="en")
 						.form-control
 							label(for="cpassword") Confirm Password :
 							input(type="password" name="cpassword" id="cpassword" required)
-						input(type="submit", value="Signup")
+						#err.err
+						input.submit(type="submit", value="Signup")
 			else if query == 'Hospital / Bloodbank'
 				.form-hospital-bloodbank#hosbld
-					form(action="/signup", method="post")
+					form(action="/signup?type=hb", method="post")
 						.form-control
 							label(for="fname") Hospital / Blood Bank Name :
 							input(type="text" name="fname" id="fname" required autofocus)
@@ -78,14 +81,14 @@ html(lang="en")
 						.form-control
 							label Category :
 						.form-control.radio
-							input(type="radio" name="category" id="gov")
+							input(type="radio" name="category" id="gov" value="Government")
 							label(for="gov") Government
 						.form-control.radio
-							input(type="radio" name="category" id="pvt")
+							input(type="radio" name="category" id="pvt" value="Private")
 							label(for="pvt") Private
 						.form-control
 							label(for="city") Select City :
-							select.blgrp(name="city" id="city")
+							select.city(name="city" id="city")
 								option(value="select" selected) Select City
 								option(value="Ahmedabad") Ahmedabad
 								option(value="Amrelli") Amreli
@@ -126,7 +129,7 @@ html(lang="en")
 						.form-control
 							label(for="cpassword") Confirm Password :
 							input(type="password" name="cpassword" id="cpassword" required)
-						input(type="submit", value="Signup")
-			else 
-				h2 Not Valid
+						.err#err
+						input.submit(type="submit", value="Signup")
 		include ../partials/footer.pug
+	script(src="js/signup.js")

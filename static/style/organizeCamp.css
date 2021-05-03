@@ -4,7 +4,7 @@ body {
 	flex-direction: column;
 }
 
-@media (min-width:1099px) {
+@media (min-width:1000px) {
 
 	.container {
 		margin: 0 200px;
@@ -12,37 +12,47 @@ body {
 	}
 }
 
-@media (min-width:0) and (max-width:1099px) {
+@media (min-width:0) and (max-width:1000px) {
 	.container {
 		padding: 10px;
 	}
 }
 
-.logo {
-	font-size: 35px;
-	text-align: center;
+.container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.subheading {
+	position: relative;
+	margin: 10px auto;
+	font-size: 30px;
 	pointer-events: none;
+	color: #dc1907;
+	font-weight: 600;
+	text-shadow: 0px 3px 5px #dc19079c;
 }
 
-.switch a {
-	display: inline-block;
-	text-decoration: none;
-	padding: 5px 15px;
+.subheading::before {
+	content: '';
+	position: absolute;
+	bottom: -3px;
+	width: 80%;
+	height: 4px;
+	border-radius: 10px;
+	background-color: #dc1907;
+}
+
+.err {
+	color: #dc1907;
 	font-size: 20px;
-	color: #fff;
-	background: #dc1907;
-	margin: 10px 5px;
-	border-radius: 7px;
-	transition: all 0.2s;
-}
-
-.switch a:hover {
-	transform: translateX(1px) translateY(1px);
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
-	transition: all 0.3s;
+	margin: 0 10px;
+	font-weight: 500;
 }
 
 .container form {
+	width: 100%;
 	margin: 20px 0;
 	display: flex;
 	flex-direction: column;
@@ -97,26 +107,12 @@ body {
 	max-height: 200px;
 }
 
-.radio {
-	flex-direction: row;
-	margin: 0 10px;
-}
-
-.radio input {
-	margin: 7px 7px 7px 35px;
-	height: 15px;
-	width: 15px;
-}
-
-.radio input:focus {
-	box-shadow: none;
-}
 
 .submit {
 	font-size: 20px;
 	height: 40px;
 	width: 130px;
-	margin: 5px 10px;
+	margin: 10px;
 	border-radius: 7px;
 	border: none;
 	background: #dc1907;
@@ -154,5 +150,19 @@ body {
 	color: green;
 	font-size: 20px;
 	margin: 0 10px;
+	font-weight: 500;
+}
+
+.fromTo {
+	display: flex;
+	align-items: center;
+}
+
+.time {
+	margin-right: 20px;
+}
+
+.time:nth-child(2) {
+	font-size: 20px;
 	font-weight: 500;
 }

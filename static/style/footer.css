@@ -1,4 +1,4 @@
-@media (min-width: 1099px) {
+@media (min-width: 1000px) {
 	.footer {
 		background-color: #343a40;
 		color: #fff;
@@ -6,7 +6,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 20px 0;
+		padding: 7px 0;
 		margin-top: auto;
 		width: 100%;
 	}
@@ -17,17 +17,17 @@
 		font-size: 22px;
 		white-space: pre-wrap;
 		word-wrap: break-word;
-		margin: 10px;
+		margin: 5px;
 	}
 }
 
-@media (min-width:0px) and (max-width:1100px) {
+@media (min-width:0px) and (max-width:1000px) {
 	.footer {
 		background-color: #343a40;
 		color: #fff;
 		display: flex;
 		flex-direction: column;
-		padding: 20px 0;
+		padding: 7px 0;
 		margin-top: auto;
 		width: 100%;
 	}
@@ -40,4 +40,10 @@
 		word-wrap: break-word;
 		margin: 5px;
 	}
+
+	
+}
+
+.footer a {
+	margin: 0 5px 20px 5px;
 }

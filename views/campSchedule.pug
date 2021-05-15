@@ -1,0 +1,75 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Camp Schedule
+		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
+		link(rel="stylesheet", href="style/navbar.css")
+		link(rel="stylesheet", href="style/footer.css")
+		link(rel="stylesheet", href="style/bloodbanks.css")
+		link(rel="stylesheet", href="style/loading.css")
+		link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css")
+		link(rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css")
+		script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+		script(type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js")
+		script(type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js")
+
+		
+	body
+		if type == "HB"
+			include ../partials/loggedInNavbarHB.pug
+		else if type == "Public"
+			include ../partials/loggedInNavbarPub.pug
+		else
+			include ../partials/navbar.pug
+		.animation
+			.semi-circle Loading...
+			.ball
+			.ball2
+		.container
+			h2.subheading Camp Schedules in City
+			.selectCity
+				label(for="city") City :
+				select.city(name="city" id="city")
+					option(value="select" selected) Select City
+					option(value="Ahmedabad") Ahmedabad
+					option(value="Amrelli") Amreli
+					option(value="Anand") Anand
+					option(value="Arvalli") Arvalli
+					option(value="Banaskantha") Banaskantha
+					option(value="Bharuch") Bharuch
+					option(value="Bhavnagar") Bhavnagar
+					option(value="Botad") Botad
+					option(value="Chhota Udaipur") Chhota Udaipur
+					option(value="Dahod") Dahod
+					option(value="Dang") Dang
+					option(value="Devbhoomi Dwarka") Devbhoomi Dwarka
+					option(value="Gandhinagar") Gandhinagar
+					option(value="Gir Somnath") Gir Somnath
+					option(value="Jamnagar") Jamnagar
+					option(value="Jungadh") Junagadh
+					option(value="Kutch") Kutch
+					option(value="Kheda") Kheda
+					option(value="Mahisagar") Mahisagar
+					option(value="Mehsana") Mehsana
+					option(value="Morbi") Morbi
+					option(value="Narmada") Narmada
+					option(value="Navsari") Navsari
+					option(value="Panchmahal") Panchmahal
+					option(value="Patan") Patan
+					option(value="Porbandar") Porbandar
+					option(value="Rajkot") Rajkot
+					option(value="Sabarkantha") Sabarkantha
+					option(value="Surat") Surat
+					option(value="Surendranagar") Surendranagar
+					option(value="Tapi") Tapi
+					option(value="Vadodara") Vadodara
+					option(value="Valsad") Valsad
+				button#fetch Fetch
+			.table
+			.err #{err}
+		include ../partials/footer.pug
+
+	script(src="js/campSchedule.js")

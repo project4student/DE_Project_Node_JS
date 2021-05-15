@@ -4,24 +4,30 @@ body {
 	flex-direction: column;
 }
 
-@media (min-width:1099px) {
-
-	.container {
-		margin: 0 200px;
-		padding: 10px;
-	}
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-@media (min-width:0) and (max-width:1099px) {
-	.container {
-		padding: 10px;
-	}
-}
-
-.logo {
-	font-size: 35px;
-	text-align: center;
+.subheading {
+	position: relative;
+	margin: 10px auto;
+	font-size: 30px;
 	pointer-events: none;
+	color: #dc1907;
+	font-weight: 600;
+	text-shadow: 0px 3px 5px #dc19079c;
+}
+
+.subheading::before {
+	content: '';
+	position: absolute;
+	bottom: -3px;
+	width: 80%;
+	height: 4px;
+	border-radius: 10px;
+	background-color: #dc1907;
 }
 
 .switch a {
@@ -155,4 +161,22 @@ body {
 	font-size: 20px;
 	margin: 0 10px;
 	font-weight: 500;
+}
+
+@media (min-width:1000px) {
+
+	.container {
+		margin: 0 200px;
+		padding: 10px;
+	}
+}
+
+@media (min-width:0) and (max-width:1000px) {
+	.container {
+		padding: 10px;
+	}
+
+	.subheading {
+		font-size: 25px;
+	}
 }

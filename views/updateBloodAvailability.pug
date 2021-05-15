@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Signup
+		link(rel="stylesheet", href="/style/updateBloodAvailability.css")
+		link(rel="stylesheet", href="/style/navbar.css")
+		link(rel="stylesheet", href="/style/footer.css")
+		link(rel="shortcut icon", href="favicon.ico", type="image/x-icon")
+	script(src="js/validator.js")
+	body
+		include ../partials/loggedInNavbarHB.pug
+		.container
+			.subheading Update Blood Availability
+			form(action="updateBloodAvailability", method="post")
+				.err #{err} this is errr
+				.form-control
+					label(for="a+") Quantity of A+ Group :
+					input(type="number", name="a+" , id="a+" required min="0" autofocus)
+				.form-control
+					label(for="a-") Quantity of A- Group :
+					input(type="number", name="a-",id='a-' required min="0")
+				.form-control
+					label(for="b+") Quantity of B+ Group :
+					input(type="number", name="b+" , id="b+" required min="0")
+				.form-control
+					label(for="b-") Quantity of B- Group :
+					input(type="number", name="b-",id='b-' required min="0")
+				.form-control
+					label(for="ab+") Quantity of AB+ Group :
+					input(type="number", name="ab+" , id="ab+" required min="0")
+				.form-control
+					label(for="ab-") Quantity of AB- Group :
+					input(type="number", name="ab-",id='ab-' required min="0")
+				.form-control
+					label(for="o+") Quantity of O+ Group :
+					input(type="number", name="o+" , id="o+" required min="0")
+				.form-control
+					label(for="o-") Quantity of O- Group :
+					input(type="number", name="o-",id='o-' required min="0")
+				input.submit(type="submit", value="Update")
+		include ../partials/footer.pug
+		

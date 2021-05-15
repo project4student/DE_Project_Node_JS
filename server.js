@@ -137,6 +137,32 @@ app.get("/fetchBB", async (req, res) => {
 	}
 });
 
+app.get("/fetchSchedule", async (req, res) => {
+	try {
+		const campsArr = await Camp.find({ city: req.query["city"] });
+		if (campsArr.length > 0) {
+			const camps = [];
+			campsArr.forEach(camp => {
+				camps.push({
+					email: camp.email,
+					primaryPhone: camp.primaryPhone,
+					secondaryPhone: camp.secondaryPhone,
+					date: camp.date,
+					address: camp.address,
+					time: camp.time
+				});
+			});
+			res.send(camps);
+		}
+		else {
+			throw new Error(`There is no Blood Donation Camp in ${req.query["city"]} !!`);
+		}
+	}
+	catch (err) {
+		res.send({ "error": err.message });
+	}
+});
+
 app.get('/signup', (req, res) => {
 	let queryParams = req.query;
 	res.render('signup', { option: queryParams["signup"] });
@@ -241,6 +267,33 @@ app.post("/login", async (req, res) => {
 		}
 	} catch (e) {
 		res.render("login", { err: e.message });
+	}
+});
+
+app.get("/campSchedule", (req, res) => {
+	try {
+		const token = req.cookies.jwt;
+		const type = req.cookies.type;
+		const result = jwt.verify(token, "CHINTAN@MIHIR@AYAJ@RUSHIKESH");
+		res.render("campSchedule", { type });
+	}
+	catch (err) {
+		res.render("campSchedule", { type: "else" });
+	}
+});
+
+app.get("/updateBloodAvailability", (req, res) => {
+	try {
+		const token = req.cookies.jwt;
+		const type = req.cookies.type;
+		const result = jwt.verify(token, "CHINTAN@MIHIR@AYAJ@RUSHIKESH");
+		if (type == "HB")
+			res.render("updateBloodAvailability");
+		else
+			res.redirect("/login");
+	}
+	catch (err) {
+		res.render('login');
 	}
 });
 

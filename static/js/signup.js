@@ -14,20 +14,23 @@ const form = document.querySelector("form");
 
 let isValid = false;
 
-
-const fname = document.querySelector("input[name='fname']");
-fname.addEventListener("focusout", () => {
-	isValid = validator.isAlpha(fname.value.trim(), "en-US", { ignore: " " });
-	if (isValid) {
-		fname.classList.remove("error");
+const validate = (whose, what) => {
+	if (what == "valid") {
+		whose.classList.remove("error");
 		submit.classList.remove("disabled");
 		submit.removeAttribute("disabled");
 	}
 	else {
-		fname.classList.add("error");
+		whose.classList.add("error");
 		submit.classList.add("disabled");
 		submit.setAttribute("disabled", "disabled");
 	}
+}
+
+const fname = document.querySelector("input[name='fname']");
+fname.addEventListener("focusout", () => {
+	isValid = validator.isAlpha(fname.value.trim(), "en-US", { ignore: " " });
+	isValid ? validate(fname, "valid") : validate(fname, "invalid");
 });
 
 
@@ -35,16 +38,7 @@ fname.addEventListener("focusout", () => {
 const email = document.querySelector("input[name='email']");
 email.addEventListener("focusout", () => {
 	isValid = validator.isEmail(email.value.trim());
-	if (isValid) {
-		email.classList.remove("error");
-		submit.classList.remove("disabled");
-		submit.removeAttribute("disabled");
-	}
-	else {
-		email.classList.add("error");
-		submit.classList.add("disabled");
-		submit.setAttribute("disabled", "disabled");
-	}
+	isValid ? validate(email, "valid") : validate(email, "invalid");
 });
 
 
@@ -52,16 +46,7 @@ email.addEventListener("focusout", () => {
 const mobile = document.querySelector("input[name='mobile']") || document.querySelector("input[name='tel']");
 mobile.addEventListener("focusout", () => {
 	isValid = validator.isMobilePhone(mobile.value.trim(), "en-IN");
-	if (isValid) {
-		mobile.classList.remove("error");
-		submit.classList.remove("disabled");
-		submit.removeAttribute("disabled");
-	}
-	else {
-		mobile.classList.add("error");
-		submit.classList.add("disabled");
-		submit.setAttribute("disabled", "disabled");
-	}
+	isValid ? validate(mobile, "valid") : validate(mobile, "invalid");
 });
 
 
@@ -70,16 +55,7 @@ const dob = document.querySelector("input[name='dob']");
 if (dob) {
 	dob.addEventListener("focusout", () => {
 		isValid = validator.isBefore(dob.value.trim(), maxdob);
-		if (isValid) {
-			dob.classList.remove("error");
-			submit.classList.remove("disabled");
-			submit.removeAttribute("disabled");
-		}
-		else {
-			dob.classList.add("error");
-			submit.classList.add("disabled");
-			submit.setAttribute("disabled", "disabled");
-		}
+		isValid ? validate(dob, "valid") : validate(dob, "invalid");
 	});
 }
 
@@ -89,16 +65,7 @@ const address = document.querySelector("textarea[name='address']");
 if (address) {
 	address.addEventListener("focusout", () => {
 		isValid = validator.isEmpty(address.value.trim());
-		if (!isValid) {
-			address.classList.remove("error");
-			submit.classList.remove("disabled");
-			submit.removeAttribute("disabled");
-		}
-		else {
-			address.classList.add("error");
-			submit.classList.add("disabled");
-			submit.setAttribute("disabled", "disabled");
-		}
+		isValid ? validate(address, "valid") : validate(address, "invalid");
 	});
 }
 
@@ -111,15 +78,11 @@ if (bloodGrp) {
 	bloodGrp.addEventListener("focusout", () => {
 		if (bloodGrp.value.trim() != "select") {
 			isValid = true;
-			bloodGrp.classList.remove("error");
-			submit.classList.remove("disabled");
-			submit.removeAttribute("disabled");
+			validate(bloodGrp, "valid");
 		}
 		else {
 			isValid = false;
-			bloodGrp.classList.add("error");
-			submit.classList.add("disabled");
-			submit.setAttribute("disabled", "disabled");
+			validate(bloodGrp, "invalid");
 		}
 	});
 }
@@ -130,15 +93,11 @@ if (city) {
 	city.addEventListener("focusout", () => {
 		if (city.value.trim() != "select") {
 			isValid = true;
-			city.classList.remove("error");
-			submit.classList.remove("disabled");
-			submit.removeAttribute("disabled");
+			validate(city, "valid");
 		}
 		else {
 			isValid = false;
-			city.classList.add("error");
-			submit.classList.add("disabled");
-			submit.setAttribute("disabled", "disabled");
+			validate(city, "invalid")
 		}
 	});
 }
@@ -149,16 +108,7 @@ if (city) {
 const password = document.querySelector("input[name='password']");
 password.addEventListener("focusout", () => {
 	isValid = validator.isStrongPassword(password.value.trim());
-	if (isValid) {
-		password.classList.remove("error");
-		submit.classList.remove("disabled");
-		submit.removeAttribute("disabled");
-	}
-	else {
-		password.classList.add("error");
-		submit.classList.add("disabled");
-		submit.setAttribute("disabled", "disabled");
-	}
+	isValid ? validate(password, "valid") : validate(password, "invalid");
 });
 
 
@@ -168,21 +118,15 @@ const cpassword = document.querySelector("input[name='cpassword']");
 cpassword.addEventListener("focusout", () => {
 	isValid = validator.isStrongPassword(cpassword.value.trim());
 	if (password.value.trim() !== cpassword.value.trim()) {
-		cpassword.classList.add("error");
-		submit.classList.add("disabled");
-		submit.setAttribute("disabled", "disabled");
+		validate(cpassword, "invalid");
 		document.querySelector("#err").innerHTML = "Password Must Match With Confirm Password";
 	}
 	else if (isValid) {
-		cpassword.classList.remove("error");
-		submit.classList.remove("disabled");
-		submit.removeAttribute("disabled");
+		validate(cpassword, "valid");
 		document.querySelector("#err").innerHTML = "";
 	}
 	else {
-		cpassword.classList.add("error");
-		submit.classList.add("disabled");
-		submit.setAttribute("disabled", "disabled");
+		validate(cpassword, "invalid");
 		document.querySelector("#err").innerHTML = "";
 	}
 });
@@ -197,11 +141,8 @@ form.addEventListener("submit", e => {
 	if (gender && !gender[0].checked && !gender[1].checked) {
 		isValid = false;
 	}
-	else if(category && !category[0].checked && !category[1].checked) {
+	else if (category && !category[0].checked && !category[1].checked) {
 		isValid = false;
-	}
-	else {
-		isValid = true;
 	}
 	if (!isValid) {
 		e.preventDefault();
